@@ -1,0 +1,75 @@
+# Thư mục môi trường Python
+venv/
+env/
+.env/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model files
+*.pth
+*.h5
+*.joblib
+*.onnx
+model_weights/
+saved_models/
+
+# Thư mục data
+train/
+test/
+data/
+datasets/
+
+# Log files
+logs/
+*.log
+training_logs/
+tensorboard_logs/
+wandb/
+
+# Checkpoints
+checkpoints/
+*.ckpt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Results and outputs
+results/
+outputs/
+predictions/
+submission*.csv
+*.png
+*.jpg
+*.jpeg
+confusion_matrix.png
+incorrect_predictions.csv
+
+# Cache
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# System files
+.DS_Store
+Thumbs.db 
