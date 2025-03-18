@@ -77,7 +77,7 @@ def main():
     
     # Transform cho inference
     test_transform = transforms.Compose([
-        transforms.Resize((32, 32)),
+        transforms.Resize((64, 64)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
@@ -87,8 +87,8 @@ def main():
     model.load_state_dict(torch.load('best_model.pth', map_location=device))
     model.eval()
     
-    # Đường dẫn chứa ảnh test
-    test_folder = './test'
+    # Đường dẫn chứa ảnh test - cập nhật đường dẫn tuyệt đối
+    test_folder = '/content/drive/MyDrive/Training Data/test'
     if not os.path.exists(test_folder):
         raise FileNotFoundError(f"Không tìm thấy thư mục test tại {test_folder}")
     
@@ -112,6 +112,8 @@ def main():
                     pred = output.argmax(dim=1).item()
                     predictions.append(label_mapping[pred])
                     image_ids.append(str(i))
+            else:
+                print(f"Warning: Không tìm thấy ảnh {image_name}")
     
     # Kiểm tra kết quả dự đoán
     unique_labels, counts = torch.unique(torch.tensor(predictions), return_counts=True)
